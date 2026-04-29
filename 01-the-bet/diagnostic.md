@@ -37,18 +37,6 @@
 
 ---
 
-## Killer Memo
-
-> You run AI at **[OpenAI / Google / Apple]**. Your OKR: make this product irrelevant.
->
-> **3-sentence memo:**
->
-> 1. Attack:
-> 2. Wedge:
-> 3. Why users switch:
-
----
-
 ## Top Vulnerability
 <!-- One line: what's the single biggest strategic risk? -->
 
