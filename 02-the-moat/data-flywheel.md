@@ -1,22 +1,32 @@
 # Data Flywheel Map
 
+> Score each loop 1-5. Your weakest loop is where competitors attack first.
+> The four loops below are the M2 starting point - adapt if your product has 2 or 6 loops instead of 4.
+
 ## Flywheel Loops
 
-### Loop 1: Usage → Signal
-**Score: __/5**
-*How does usage generate proprietary data?*
+| Loop | What It Measures | Score 1 | Score 5 | Score |
+|------|------------------|---------|---------|-------|
+| **Correction** | Do users fix AI outputs? Is that signal captured and reused? | No capture | Automated retraining | __/5 |
+| **Preference** | Does the product learn individual / team preferences over time? | Stateless | Deep personalization | __/5 |
+| **Domain Context** | Does usage in one area improve quality in adjacent areas? | Siloed | Cross-domain transfer | __/5 |
+| **Network** | Does each new user / team make the product better for everyone? | Isolated | Strong network effects | __/5 |
 
-### Loop 2: Signal → Model
-**Score: __/5**
-*How does that data improve the model?*
+### Correction Loop - __/5
+**What you capture today:**
+**How it compounds:**
 
-### Loop 3: Model → Experience
-**Score: __/5**
-*How does the better model improve UX?*
+### Preference Loop - __/5
+**What you capture today:**
+**How it compounds:**
 
-### Loop 4: Experience → Usage
-**Score: __/5**
-*How does better UX drive more usage?*
+### Domain Context Loop - __/5
+**What you capture today:**
+**How it compounds:**
+
+### Network Loop - __/5
+**What you capture today:**
+**How it compounds:**
 
 **Total Flywheel Score: __/20**
 **Weakest Loop:**
@@ -24,17 +34,25 @@
 
 ---
 
-## Competitive Positioning
+## Encroachment Threat Assessment
 
-**Axis X:**
-**Axis Y:**
+### 1. Platform Encroachment
+**Attacker:**
+**Vector:**
+**Time-to-threat:**
+**% of value at risk:**
 
-| Competitor | X Position | Y Position | Notes |
-|-----------|-----------|-----------|-------|
-| Your product | | | |
-| | | | |
-| | | | |
-| | | | |
+### 2. Vertical Competitor
+**Attacker:**
+**Vector:**
+**Time-to-threat:**
+**% of value at risk:**
+
+### 3. Adjacent Expansion
+**Attacker:**
+**Vector:**
+**Time-to-threat:**
+**% of value at risk:**
 
 ---
 
@@ -43,5 +61,8 @@
 *Your partner played the Big Tech attacker. What was their plan to kill you?*
 
 **Attacker:**
-**Attack vector:**
+**Attack vector (target the weakest loop):**
+**Weeks 1-4 - what they ship:**
+**Weeks 5-8 - how they poach users:**
+**Weeks 9-12 - why users don't come back:**
 **Your defense:**
