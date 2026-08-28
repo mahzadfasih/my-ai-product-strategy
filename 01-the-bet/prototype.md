@@ -1,7 +1,7 @@
 # The Prototype Bet
 
 ## What I Built
-**ValT** — a one-page web app where a project manager uploads project requirements and a project file, presses **Execute**, and gets back the list of project areas
+**ValT** — a one-page web app where a project manager uploads project requirements and a project file, and returns the list of project areas
 that are not compliant with those requirements.
 
 ## Tool Used
@@ -28,7 +28,7 @@ steps into one action. Requirements document → validation rules → applied ag
 check it against.
 
 ## The Bet in One Sentence
-For project managers who today check requirement compliance by hand, ValT reads the requirements
+For project managers who today check requirement compliance manually, ValT reads the requirements
 document itself, derives the rules from it, and returns the specific project areas that violate
 them — so compliance checking becomes an action you take, not a spreadsheet you maintain.
 
