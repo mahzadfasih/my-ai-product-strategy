@@ -1,0 +1,33 @@
+{
+  "project": "Northbridge Terminal Fit-Out",
+  "export": "element schedule",
+  "elements": [
+    { "id": "COR-101", "category": "Corridor", "area": "Level 01 — East Concourse", "discipline": "Architecture", "costCode": "A-2100", "revisionStatus": "Issued", "clearWidth_mm": 1800, "length_m": 24, "fireRating": "FR60" },
+    { "id": "COR-102", "category": "Corridor", "area": "Level 01 — East Concourse", "discipline": "Architecture", "costCode": "A-2100", "revisionStatus": "Issued", "clearWidth_mm": 1420, "length_m": 31, "fireRating": "FR60" },
+    { "id": "COR-103", "category": "Corridor", "area": "Level 01 — West Concourse", "discipline": "Architecture", "costCode": "", "revisionStatus": "In progress", "clearWidth_mm": 1500, "length_m": 38, "fireRating": "FR60" },
+    { "id": "DR-2201", "category": "Door", "area": "Level 01 — East Concourse", "discipline": "Architecture", "costCode": "A-2340", "revisionStatus": "Approved", "clearWidth_mm": 950, "fireRating": "FR60" },
+    { "id": "DR-2202", "category": "Door", "area": "Level 01 — East Concourse", "discipline": "Architecture", "costCode": "A-2340", "revisionStatus": "Approved", "clearWidth_mm": 860, "fireRating": "FR60" },
+    { "id": "DR-2203", "category": "Door", "area": "Level 01 — West Concourse", "discipline": "Architecture", "costCode": "A-2340", "revisionStatus": "Issued", "clearWidth_mm": 900, "fireRating": "" },
+    { "id": "DR-2204", "category": "Door", "area": "Level 02 — Retail", "discipline": "Architecture", "costCode": "A-2341", "revisionStatus": "Draft", "clearWidth_mm": 820, "fireRating": "TBD" },
+    { "id": "DR-2205", "category": "Door", "area": "Level 02 — Retail", "discipline": "", "costCode": "A-2341", "revisionStatus": "Issued", "clearWidth_mm": 1000, "fireRating": "FR30" },
+    { "id": "DR-2206", "category": "Door", "area": "Level 01 — West Concourse", "discipline": "Architecture", "costCode": "A-2342", "revisionStatus": "Issued", "fireRating": "FR60" },
+    { "id": "SH-301", "category": "Shaft", "area": "Level 01 — West Concourse", "discipline": "Structure", "costCode": "S-1120", "revisionStatus": "Issued", "fireRating": "FR90" },
+    { "id": "SH-302", "category": "Shaft", "area": "Level 02 — Retail", "discipline": "Structure", "costCode": "S-1120", "revisionStatus": "Issued", "fireRating": "FR30" },
+    { "id": "SH-303", "category": "Shaft", "area": "Basement — Plant", "discipline": "Structure", "costCode": "S-1121", "revisionStatus": "Approved", "fireRating": "FR120" },
+    { "id": "RM-4101", "category": "Room", "area": "Level 01 — East Concourse", "discipline": "Architecture", "costCode": "A-3010", "revisionStatus": "Issued", "ceilingHeight_mm": 3200, "claddingSpec": "Mineral fibre panel, non-combustible" },
+    { "id": "RM-4102", "category": "Room", "area": "Level 02 — Retail", "discipline": "Architecture", "costCode": "A-3010", "revisionStatus": "Issued", "ceilingHeight_mm": 2450, "claddingSpec": "ACM combustible cladding, Class D" },
+    { "id": "RM-4103", "category": "Room", "area": "Level 02 — Retail", "discipline": "Architecture", "costCode": "A-3011", "revisionStatus": "Approved", "ceilingHeight_mm": 2800, "claddingSpec": "Plasterboard, non-combustible" },
+    { "id": "RM-4104", "category": "Room", "area": "Basement — Plant", "discipline": "Architecture", "costCode": "A-3012", "revisionStatus": "Issued", "ceilingHeight_mm": 2600, "claddingSpec": "Combustible cladding, timber veneer" },
+    { "id": "WD-5201", "category": "Window", "area": "Level 01 — East Concourse", "discipline": "Facade", "costCode": "F-4100", "revisionStatus": "Issued", "uValue": 1.4 },
+    { "id": "WD-5202", "category": "Window", "area": "Level 01 — West Concourse", "discipline": "Facade", "costCode": "F-4100", "revisionStatus": "Issued", "uValue": 1.9 },
+    { "id": "WD-5203", "category": "Window", "area": "Level 02 — Retail", "discipline": "Facade", "costCode": "F-4101", "revisionStatus": "Draft", "uValue": 2.3 },
+    { "id": "WD-5204", "category": "Window", "area": "Roof", "discipline": "Facade", "costCode": "F-4102", "revisionStatus": "Issued", "uValue": 1.1 },
+    { "id": "EQ-6001", "category": "Equipment", "area": "Basement — Plant", "discipline": "MEP", "costCode": "M-5200", "revisionStatus": "Issued", "manufacturer": "Aeroflow", "noiseLevel_dB": 42 },
+    { "id": "EQ-6002", "category": "Equipment", "area": "Basement — Plant", "discipline": "MEP", "costCode": "M-5200", "revisionStatus": "Issued", "manufacturer": "Aeroflow", "noiseLevel_dB": 58 },
+    { "id": "EQ-6003", "category": "Equipment", "area": "Basement — Plant", "discipline": "MEP", "costCode": "M-5201", "revisionStatus": "In progress", "manufacturer": "", "noiseLevel_dB": 47 },
+    { "id": "EQ-6004", "category": "Equipment", "area": "Roof", "discipline": "MEP", "costCode": "M-5202", "revisionStatus": "Issued", "manufacturer": "Thermex", "noiseLevel_dB": 44 },
+    { "id": "EQ-6005", "category": "Equipment", "area": "Roof", "discipline": "MEP", "costCode": "M-5202", "revisionStatus": "Issued", "manufacturer": "Thermex", "noiseLevel_dB": 43 },
+    { "id": "EQ-6006", "category": "Equipment", "area": "Level 02 — Retail", "discipline": "", "costCode": "M-5203", "revisionStatus": "Issued", "manufacturer": "Thermex", "noiseLevel_dB": 39 },
+    { "id": "EQ-6007", "category": "Equipment", "area": "Level 02 — Retail", "discipline": "MEP", "costCode": "M-5203", "revisionStatus": "Issued", "manufacturer": "Aeroflow" }
+  ]
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ValT engine check</title></head>
+<body>
+<pre id="out">running…</pre>
+<script src="engine.js"></script>
+<script>
+"use strict";
+
+const lines = [];
+let pass = 0, fail = 0;
+const log = s => lines.push(s);
+function ok(name, cond, detail) {
+  if (cond) { pass++; log("  PASS  " + name); }
+  else      { fail++; log("  FAIL  " + name + (detail ? "  ->  " + detail : "")); }
+}
+
+/* ---------- stage 1: rule derivation ---------- */
+const rules = extractRules(SAMPLE_REQ);
+log("=== RULES DERIVED: " + rules.length + " ===");
+rules.forEach(r => log(`  ${r.id}  [${r.severity.padEnd(8)}] subj=${JSON.stringify(r.subject)}  ${ruleLogic(r)}`));
+
+log("");
+log("=== RULE ASSERTIONS ===");
+ok("14 rules derived", rules.length === 14, "got " + rules.length);
+const byLogic = rules.map(ruleLogic);
+[
+  ['"clear width" >= 1500 mm',                          "corridor min width"],
+  ['"clear width" >= 900 mm',                           "door min width"],
+  ['"fire rating" is present and non-empty',            "door fire rating presence"],
+  ['"length" <= 30 m',                                  "corridor max length"],
+  ['"fire rating" ∈ { FR60, FR90, FR120 }',             "shaft fire rating enum"],
+  ['no field contains "combustible cladding"',          "forbidden cladding"],
+  ['"u-value" <= 1.6',                                  "window u-value"],
+  ['"ceiling height" >= 2700 mm',                       "room ceiling height"],
+  ['"cost code" is present and non-empty',              "cost code presence"],
+  ['"responsible discipline" is present and non-empty', "discipline presence"],
+  ['"revision status" ∈ { Issued, Approved }',          "revision status enum"],
+  ['"manufacturer" is present and non-empty',           "manufacturer presence"],
+  ['"noise level" <= 45 db',                            "equipment noise"],
+  ['"insulation class" is present and non-empty',       "ductwork insulation"]
+].forEach(([logic, name]) => ok(name, byLogic.includes(logic), "no rule compiled to " + logic));
+
+ok("every rule has a resolvable attribute or phrase",
+   rules.every(r => r.op === "absent" ? !!r.phrase : !!r.attr),
+   JSON.stringify(rules.filter(r => r.op !== "absent" && !r.attr).map(r => r.text)));
+
+/* ---------- stage 2: project parsing ---------- */
+const records = parseProject(SAMPLE_PRJ);
+log("");
+log("=== RECORDS PARSED: " + records.length + " ===");
+ok("27 records parsed", records.length === 27, "got " + records.length);
+ok("ids resolve", records.every((r, i) => !/^Record /.test(idOf(r, i))));
+ok("areas resolve", records.every(r => areaOf(r) !== "Unassigned"));
+
+/* CSV path parity */
+const csv = "id,category,area,clearWidth_mm\nDR-9001,Door,Level 09,700\nDR-9002,Door,Level 09,1200\n";
+const csvRecs = parseProject(csv);
+ok("csv parses to 2 records", csvRecs.length === 2, "got " + csvRecs.length);
+ok("csv door width violation found",
+   validate(extractRules("All doors must have a minimum clear width of 900 mm."), csvRecs).length === 1);
+
+/* ---------- stage 3: validation ---------- */
+const findings = validate(rules, records);
+const counts = { critical: 0, serious: 0, warning: 0 };
+findings.forEach(f => counts[f.severity]++);
+
+log("");
+log("=== FINDINGS: " + findings.length +
+    "  (critical " + counts.critical + ", serious " + counts.serious +
+    ", warning " + counts.warning + ") ===");
+[...findings]
+  .sort((a, b) => a.rule.id.localeCompare(b.rule.id) || a.element.localeCompare(b.element))
+  .forEach(f => log(`  ${f.rule.id} ${f.severity.padEnd(8)} ${f.element.padEnd(9)} ${f.area.padEnd(28)} field=${String(f.field).padEnd(16)} expected ${f.expected} | found ${f.actual}`));
+
+const has = (rid, el) => findings.some(f => f.rule.id === rid && f.element === el);
+const hit = el => findings.filter(f => f.element === el).length;
+
+log("");
+log("=== VALIDATION ASSERTIONS ===");
+
+// numeric, min, unit-suffixed key
+ok("COR-102 flagged: 1420mm < 1500mm", has("R01", "COR-102"));
+ok("COR-101 clean on width (1800mm)", !has("R01", "COR-101"));
+ok("COR-103 clean on width (exactly 1500mm = boundary passes)", !has("R01", "COR-103"));
+
+// numeric, doors
+ok("DR-2202 flagged: 860mm < 900mm", has("R02", "DR-2202"));
+ok("DR-2204 flagged: 820mm < 900mm", has("R02", "DR-2204"));
+ok("DR-2203 clean at boundary 900mm", !has("R02", "DR-2203"));
+
+// unverifiable: attribute absent from the record
+ok("DR-2206 width unverifiable (no clearWidth field)",
+   findings.some(f => f.rule.id === "R02" && f.element === "DR-2206" && f.severity === "serious"));
+ok("EQ-6007 noise unverifiable (no noiseLevel field)",
+   findings.some(f => f.rule.id === "R13" && f.element === "EQ-6007" && f.severity === "serious"));
+ok("exactly 2 unverifiable findings", counts.serious === 2, "got " + counts.serious);
+
+// presence + placeholder handling
+ok("DR-2203 flagged: empty fireRating", has("R03", "DR-2203"));
+ok('DR-2204 flagged: fireRating "TBD" treated as empty', has("R03", "DR-2204"));
+
+// advisory (should) severity
+ok("COR-102 length 31m advisory", findings.some(f => f.rule.id === "R04" && f.element === "COR-102" && f.severity === "warning"));
+ok("COR-103 length 38m advisory", has("R04", "COR-103"));
+ok("COR-101 clean on length (24m)", !has("R04", "COR-101"));
+
+// enum
+ok("SH-302 flagged: FR30 not in {FR60,FR90,FR120}", has("R05", "SH-302"));
+ok("SH-301 clean: FR90 allowed", !has("R05", "SH-301"));
+ok("shaft enum did not leak onto doors",
+   !findings.some(f => f.rule.id === "R05" && f.element.startsWith("DR-")));
+
+// forbidden phrase, scanned across text fields
+ok("RM-4102 flagged: ACM combustible cladding", has("R06", "RM-4102"));
+ok("RM-4104 flagged: combustible cladding timber veneer", has("R06", "RM-4104"));
+ok("RM-4101 clean: non-combustible mineral fibre", !has("R06", "RM-4101"));
+ok("RM-4103 clean: non-combustible plasterboard", !has("R06", "RM-4103"));
+
+// numeric on a bare float, no unit
+ok("WD-5202 flagged: u-value 1.9 > 1.6", has("R07", "WD-5202"));
+ok("WD-5203 flagged: u-value 2.3 > 1.6", has("R07", "WD-5203"));
+ok("WD-5201 clean: u-value 1.4", !has("R07", "WD-5201"));
+
+// advisory numeric
+ok("RM-4102 flagged: ceiling 2450mm < 2700mm", has("R08", "RM-4102"));
+ok("RM-4103 clean: ceiling 2800mm", !has("R08", "RM-4103"));
+
+// project-wide presence rules
+ok("COR-103 flagged: empty costCode", has("R09", "COR-103"));
+ok("WD-5204 clean: costCode populated", !has("R09", "WD-5204"));
+ok("R09 scoped to every record", rules.find(r => r.id === "R09").scope === 27);
+ok('"responsible discipline" resolved to the discipline field',
+   has("R10", "DR-2205") && has("R10", "EQ-6006"));
+
+// project-wide enum
+ok("R11 caught exactly the 4 non-issued/approved records",
+   ["COR-103", "DR-2204", "WD-5203", "EQ-6003"].every(e => has("R11", e))
+   && findings.filter(f => f.rule.id === "R11").length === 4);
+
+// subject-scoped presence
+ok("EQ-6003 flagged: empty manufacturer", has("R12", "EQ-6003"));
+ok("EQ-6005 clean: manufacturer populated", !has("R12", "EQ-6005"));
+
+// subject-scoped numeric with dB unit
+ok("EQ-6002 flagged: 58 dB > 45 dB", has("R13", "EQ-6002"));
+ok("EQ-6001 clean: 42 dB", !has("R13", "EQ-6001"));
+ok("EQ-6005 clean: 43 dB", !has("R13", "EQ-6005"));
+ok("Roof is fully compliant", !findings.some(f => f.area === "Roof"));
+
+// scope gap
+const r14 = rules.find(r => r.id === "R14");
+ok("R14 (ductwork) reported as having no matching records", r14.unmatched === true && r14.scope === 0);
+ok("R14 produced no findings", !findings.some(f => f.rule.id === "R14"));
+
+// aggregate output the UI renders
+const badEls = new Set(findings.map(f => f.element));
+const badAreas = new Set(findings.map(f => f.area));
+const allAreas = new Set(records.map(areaOf));
+log("");
+log("=== ROLLUP ===");
+log("  areas non-compliant : " + badAreas.size + " of " + allAreas.size);
+log("  records with issues : " + badEls.size + " of " + records.length);
+log("  clean rate          : " + Math.round((1 - badEls.size / records.length) * 100) + "%");
+log("  areas               : " + [...allAreas].join(" | "));
+ok("every finding carries area, element, expected and actual",
+   findings.every(f => f.area && f.element && f.expected && f.actual !== undefined));
+ok("all three severities present (severity bar has 3 segments)",
+   counts.critical > 0 && counts.serious > 0 && counts.warning > 0);
+ok("at least one area is clean (hero denominator > numerator)",
+   badAreas.size < allAreas.size, `${badAreas.size} of ${allAreas.size}`);
+
+/* ---------- edge cases ---------- */
+log("");
+log("=== EDGE CASES ===");
+ok("requirements with no normative statements yield 0 rules",
+   extractRules("This document describes the project. Colours are nice.").length === 0);
+ok("empty project file throws", (() => {
+  try { parseProject("   "); return false; } catch (e) { return true; }
+})());
+ok("malformed json throws a readable error", (() => {
+  try { parseProject('{"elements": [ {'); return false; }
+  catch (e) { return /Could not parse JSON/.test(e.message); }
+})());
+ok("bare json array is accepted", parseProject('[{"id":"X","category":"Door"}]').length === 1);
+ok("non-numeric value against a numeric rule is unverifiable, not a crash", (() => {
+  const rs = extractRules("All doors must have a minimum clear width of 900 mm.");
+  const fs = validate(rs, [{ id: "D1", category: "Door", clearWidth_mm: "see drawing" }]);
+  return fs.length === 1 && fs[0].severity === "serious";
+})());
+ok("advisory rule on a missing attribute is silent (no noise)", (() => {
+  const rs = extractRules("Doors should have a minimum acoustic rating of 30 dB.");
+  return validate(rs, [{ id: "D1", category: "Door" }]).length === 0;
+})());
+ok("mm/m unit normalisation works", (() => {
+  const rs = extractRules("All corridors must have a minimum clear width of 1.5 m.");
+  const fs = validate(rs, [{ id: "C1", category: "Corridor", clearWidth_mm: 1400 },
+                           { id: "C2", category: "Corridor", clearWidth_mm: 1600 }]);
+  return fs.length === 1 && fs[0].element === "C1";
+})());
+ok("a fully compliant project yields zero findings", (() => {
+  const rs = extractRules("Every element must have a cost code.");
+  return validate(rs, [{ id: "A", costCode: "X-1" }, { id: "B", costCode: "X-2" }]).length === 0;
+})());
+
+log("");
+log("================================");
+log(fail === 0 ? `ALL ${pass} ASSERTIONS PASSED` : `${pass} passed, ${fail} FAILED`);
+log("================================");
+
+document.getElementById("out").textContent = lines.join("\n");
+document.title = fail === 0 ? "OK " + pass : "FAILED " + fail;
+</script>
+</body>
+</html>
