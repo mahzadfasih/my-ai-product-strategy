@@ -1,8 +1,7 @@
 # The Prototype Bet
 
 ## What I Built
-**ValT** — a one-page web app where a project manager uploads project requirements on the left
-and a project file on the right, presses **Execute**, and gets back the list of project areas
+**ValT** — a one-page web app where a project manager uploads project requirements and a project file, presses **Execute**, and gets back the list of project areas
 that are not compliant with those requirements.
 
 ## Tool Used
