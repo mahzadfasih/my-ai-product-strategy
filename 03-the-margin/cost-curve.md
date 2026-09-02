@@ -22,9 +22,9 @@
 ## Cost Curve
 | Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
 |--------------------|----------------|-------|-----------|----------|----------|-------------|
-| Text to Rule Set | Simple | | | | | |
-| Validate Project Against Rule Set | Medium | | | | | |
-| Make Recommendation based on Validation| Complex | | | | | |
+| Text to Rule Set | Simple | Small | $0.005 | 50% | $0 | |
+| Validate Project Against Rule Set | Medium | Mid | $0.005 | 30% | | |
+| Make Recommendation based on Validation| Complex | Frontier | $0.01 | 20% | | |
 
 # Pricing Strategy
 Pricing Strategy Block
@@ -75,7 +75,6 @@ Why this pricing structure fits the buyer and the value delivered: This gives th
 | Model provider raises prices 50% | | |
 
 ## Board One-Pager
-<!-- Before/After: Old SaaS revenue vs. AI usage revenue for your product -->
 
 ### Before (traditional SaaS):
 - Revenue: $50/seat * 40,000
