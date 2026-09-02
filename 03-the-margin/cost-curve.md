@@ -22,9 +22,9 @@
 ## Cost Curve
 | Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
 |--------------------|----------------|-------|-----------|----------|----------|-------------|
-| | Simple | | | | | |
-| | Medium | | | | | |
-| | Complex | | | | | |
+| Text to Rule Set | Simple | | | | | |
+| Validate Project Against Rule Set | Medium | | | | | |
+| Make Recommendation based on Validation| Complex | | | | | |
 ## Cost Model
 
 | Cost Category | Per-User/Month | Notes |
