@@ -1,12 +1,5 @@
 # Cost Curve & Pricing Strategy
 
-## Cost Curve
-| Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
-|--------------------|----------------|-------|-----------|----------|----------|-------------|
-| | Simple | | | | | |
-| | Medium | | | | | |
-| | Complex | | | | | |
-
 # Margin Calculator
 
 ## Inputs
@@ -26,6 +19,12 @@
 | 3x Cost  | $30.00 | 56.3% ($45.00) |
 | 2x Usage | $20.00 | 68.8% ($55.00) |
 
+## Cost Curve
+| Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
+|--------------------|----------------|-------|-----------|----------|----------|-------------|
+| | Simple | | | | | |
+| | Medium | | | | | |
+| | Complex | | | | | |
 ## Cost Model
 
 | Cost Category | Per-User/Month | Notes |
