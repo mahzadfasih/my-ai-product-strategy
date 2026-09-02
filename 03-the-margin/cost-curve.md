@@ -77,9 +77,14 @@ Why this pricing structure fits the buyer and the value delivered: This gives th
 ## Board One-Pager
 <!-- Before/After: Old SaaS revenue vs. AI usage revenue for your product -->
 
-Before (traditional SaaS):
-Revenue: $50/seat * 40000
-COGS: $30000
-Gross Margin: 98.5%
-After (AI-enabled): 
-Net margin shift:
+### Before (traditional SaaS):
+- Revenue: $50/seat * 40000
+- COGS: $30000
+- Gross Margin: 98.5%
+### After (AI-enabled): 
+- Revenue: ($300 base + $0.1*20)*40000
+- COGS: $600000
+- Gross Margin: 95%
+### Net margin shift:
+- Delta margin %: -3.5%
+- Delta gross $: 570000
