@@ -27,7 +27,7 @@
 | Make Recommendation based on Validation| Complex | | | | | |
 
 # Pricing Strategy
-Pricing Strategy Block, Module 3
+Pricing Strategy Block
 
 Pricing Strategy
 - Strategy posture: Maximize
@@ -39,7 +39,7 @@ Pricing Strategy
 - Implied revenue/user/month: $302.00
 
 Decision Note
-Why this pricing structure fits the buyer and the value delivered: ·
+Why this pricing structure fits the buyer and the value delivered: This gives the customer to run validation ad-hoc based on their project needs and manage and understand their cost better.
 
 ## Cost Model
 
