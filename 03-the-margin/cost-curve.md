@@ -1,6 +1,11 @@
 # Cost Curve & Pricing Strategy
-# Cost Curve
 
+## Cost Curve
+| Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
+|--------------|----------------|-------|-----------|----------|----------|-----------|
+| | Simple | | | | | |
+| | Medium | | | | | |
+| | Complex | | | | | |
 
 # Margin Calculator
 
