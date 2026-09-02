@@ -1,4 +1,7 @@
 # Cost Curve & Pricing Strategy
+# Cost Curve
+
+
 # Margin Calculator
 
 ## Inputs
