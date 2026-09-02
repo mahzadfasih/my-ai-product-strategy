@@ -25,6 +25,22 @@
 | Text to Rule Set | Simple | | | | | |
 | Validate Project Against Rule Set | Medium | | | | | |
 | Make Recommendation based on Validation| Complex | | | | | |
+
+# Pricing Strategy
+Pricing Strategy Block, Module 3
+
+Pricing Strategy
+- Strategy posture: Maximize
+- Pricing model: Outcome / Resolution
+- Unit of work metered: reports generated
+- Base fee ($/month): 300
+- Price per unit: $0.1
+- Estimated units/user/month: 20
+- Implied revenue/user/month: $302.00
+
+Decision Note
+Why this pricing structure fits the buyer and the value delivered: ·
+
 ## Cost Model
 
 | Cost Category | Per-User/Month | Notes |
