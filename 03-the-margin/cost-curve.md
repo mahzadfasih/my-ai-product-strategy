@@ -1,5 +1,5 @@
 # Cost Curve & Pricing Strategy
-# Margin Calculator, Module 3
+# Margin Calculator
 
 ## Inputs
 - Avg requests/user/month: 500
