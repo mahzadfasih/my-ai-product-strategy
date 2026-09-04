@@ -12,7 +12,7 @@ Dataset health
 | # | Input | Expected Output | Edge Case? | Judge Type |
 |---|-------|----------------|-----------|-----------|
 | 1 | All corridors must have a minimum clear width of 1500 mm. | Corridor width > 1500 mm | N | both |
-| 2 | Every element must have a cost code. | Cost code is assigned | N | both |
+| 2 | Every element must have a cost code. | data is complete | N | both |
 | 3 | Combustible cladding | Fire hazard identified | Y | both |
 
 
