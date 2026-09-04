@@ -16,8 +16,10 @@ Dataset health
 | 3 | .pdf of requirements | set of rules that map to the requirements | Y | rule |
 
 
-**Adversarial rows included:** 3
-**Coverage gaps identified by partner:**
+Dataset health
+- Total: 3
+- Edge cases: 1 (33.3%)
+- Judge mix: 67% rule / 0% LLM / 33% both
 
 ## Confidence UX Design
 
