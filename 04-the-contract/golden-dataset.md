@@ -16,7 +16,7 @@ Dataset health
 | 3 | .pdf of requirements | set of rules that map to the requirements | Y | rule |
 
 
-**Adversarial rows included:** _3_
+**Adversarial rows included:** 3
 **Coverage gaps identified by partner:**
 
 ## Confidence UX Design
