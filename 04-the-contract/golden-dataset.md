@@ -1,5 +1,17 @@
 # Golden Dataset & Reliability Contract
 
+## Golden Dataset
+
+Test cases:
+  1. Edge: N · Judge: both, IN: .xls of requirements → OUT: set of rules that map to requirements
+  2. Edge: N · Judge: rule, IN: project data → OUT: measurement against rules
+  3. Edge: Y · Judge: rule, IN: .pdf of requirements → OUT: set of rules that map to the requirements
+
+Dataset health
+- Total: 3
+- Edge cases: 1 (33.3%)
+- Judge mix: 67% rule / 0% LLM / 33% both
+
 ## Golden Dataset Spec
 
 | # | Input | Expected Output | Edge Case? | Judge Type |
