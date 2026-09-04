@@ -46,7 +46,7 @@ Dataset health
 |--------|--------|-------------|-----------------|
 | Accuracy | 92% | Weekly · 300 golden rows · LLM-as-Judge (GPT-4o, accuracy rubric) | <88% → route to human review queue |
 | Hallucination rate | <1% | Same weekly run · safety rubric flags fabricated policies/numbers | >2% → auto-rollback to last good model |
-| Latency (p95) | <800ms | Continuous prod monitoring (Datadog) · p95 by endpoint | >5s for 5min → page on-call |
+| Latency (p95) | <800ms | Continuous prod monitoring (Datadog) · p95 by endpoint | >5s for 60min → page on-call |
 | Drift velocity | <0.5%/wk | 4-week rolling accuracy trend vs. golden dataset | >1% decay/wk → trigger gold-set audit |
 
 ## HITL Architecture
