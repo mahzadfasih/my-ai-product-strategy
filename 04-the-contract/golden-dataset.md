@@ -2,11 +2,6 @@
 
 ## Golden Dataset
 
-Test cases:
-  1. Edge: N · Judge: both, IN: .xls of requirements → OUT: set of rules that map to requirements
-  2. Edge: N · Judge: rule, IN: project data → OUT: measurement against rules
-  3. Edge: Y · Judge: rule, IN: .pdf of requirements → OUT: set of rules that map to the requirements
-
 Dataset health
 - Total: 3
 - Edge cases: 1 (33.3%)
@@ -16,13 +11,12 @@ Dataset health
 
 | # | Input | Expected Output | Edge Case? | Judge Type |
 |---|-------|----------------|-----------|-----------|
-| 1 | | | Y/N | rule / LLM |
-| 2 | | | Y/N | rule / LLM |
-| 3 | | | Y/N | rule / LLM |
-| 4 | | | Y/N | rule / LLM |
-| 5 | | | Y/N | rule / LLM |
+| 1 | .xls of requirements | set of rules that map to requirements | N | both |
+| 2 | project data | measurement against rules | N | rule |
+| 3 | .pdf of requirements | set of rules that map to the requirements | Y | rule |
 
-**Adversarial rows included:** __
+
+**Adversarial rows included:** _3_
 **Coverage gaps identified by partner:**
 
 ## Confidence UX Design
