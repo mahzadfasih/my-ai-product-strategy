@@ -13,7 +13,7 @@ Dataset health
 |---|-------|----------------|-----------|-----------|
 | 1 | All corridors must have a minimum clear width of 1500 mm. | Corridor width > 1500 mm | N | both |
 | 2 | Every element must have a cost code. | data is complete | N | both |
-| 3 | Combustible cladding | Fire hazard identified | Y | both |
+| 3 | Combustible cladding = value | Fire hazard identified | Y | both |
 
 
 Dataset health
