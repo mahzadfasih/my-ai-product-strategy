@@ -21,7 +21,6 @@ Dataset health
 - Edge cases: 1 (33.3%)
 - Judge mix: 67% rule / 0% LLM / 33% both
 
-## Confidence UX Design
 
 ## Confidence UX Design
 
