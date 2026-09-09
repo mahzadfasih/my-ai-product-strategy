@@ -38,12 +38,38 @@ Project modifier: changes project data based on validation results. A project ma
 
 ## Shadow AI Audit
 
-| Tool | Owner | Risk Level | Decision |
-|------|-------|-----------|----------|
-| | | H / M / L | keep / govern / kill |
-| | | H / M / L | keep / govern / kill |
-| | | H / M / L | keep / govern / kill |
+Shadow AI Audit (user-side), Module 5
 
-**Total tools found:**
-**Tools after triage:**
-**Estimated hidden spend:**
+## Discover, User-Side Workarounds
+- customers provide requirements documents to ChatGPT to derive rules | source: User interview | signal: Workflow gap | freq: H | spend: $20/mo | decision: Build
+- customers run our reports with ChatGPT to provide exec summary | source: User interview | signal: Capability gap | freq: M | spend: $0/mo | decision: Ignore
+- customers build in-house agents to act on validation results | source: API pattern | signal: Workflow gap | freq: H | spend: $50/mo | decision: Build
+
+## Pattern Assessment
+- Workarounds found: 3
+- Build candidates: 2
+- Partner candidates: 0
+- Ignore decisions: 1
+- Adjacent spend: $70/mo
+- Dominant signal: Workflow gap
+
+## Action Plan
+### Build
+Building rulesets and applying changes to project data are opportunity spaces to drive revenue and preserve value of proprietary data. 
+
+### Partner
+·
+
+### Ignore + Monitor
+Producing exec summary reports based on validation outcomes is not a high priority for us to build as it won't drive revenue or impact customer adoption or retention. 
+
+## Roadmap Brief
+Based on your audit: 3 user-side workarounds discovered.
+Decisions: 2 build · 0 partner · 1 ignore · 0 TBD.
+Estimated adjacent spend: $70/mo across surveyed users.
+Dominant signal: Workflow gap.
+
+Recommended next step: Workflow gaps dominate, your users are stitching your product into multi-step pipelines. Strongest near-term move is partner integrations with the AI tools they already chain in.
+
+Sequence the Build column by frequency × strategic relevance. Confirm Partner candidates with the external tools' partnership teams. Re-run this audit each quarter, workarounds shift fast.
+
