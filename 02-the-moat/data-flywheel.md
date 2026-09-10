@@ -20,28 +20,25 @@ Weakest loop: Network Loop (3/5)
 ## Encroachment Threat Assessment
 
 ### 1. Platform Encroachment
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Palantir
+**Time-to-threat:** 1-2 years
+**% of value at risk:** 30%
 
 ### 2. Vertical Competitor
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Solibri
+**Time-to-threat:** 2-3 years
+**% of value at risk:** 40%
 
 ### 3. Adjacent Expansion
-**Attacker:**
-**Vector:**
-**Time-to-threat:**
-**% of value at risk:**
+**Attacker:** Customers' in-house solution
+**Time-to-threat:** 3-5 years
+**% of value at risk:** 30%
 
 ---
 
 ## 90-Day Encroachment Plan
 
-*Your partner played the Big Tech attacker. What was their plan to kill you?*
+*Your partner played the Big Tech attacker. What was their plan to kill you?* Build lower-cost solution at scale faster.
 
 **Attacker:**
 **Attack vector (target the weakest loop):**
