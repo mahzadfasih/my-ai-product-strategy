@@ -10,7 +10,7 @@
 
 ## Scores
 
-### Contextual Moat — 2/5
+### Contextual Moat — 3/5
 *Workflow depth × switching cost. Would users leave in a weekend if a competitor showed up?*
 
 **Score rationale:** Switching cost is low as user is not using historic data. Workflow depth is low as many validation services are already built at platform scale.
@@ -28,17 +28,17 @@
 
 ---
 
-### Platform Exposure — 3/5
+### Platform Exposure — 2/5
 *Encroachment risk × pivot speed. If Apple/Google/OpenAI ships your hero feature native — then what?*
 
-**Score rationale:** Encroachment is low as use cases are industry specific, however pivot speed will be high given alternative options.
+**Score rationale:** Encroachment is already happening with some customers looking at options, however pivot speed will be not too high given price and integration outside data ecosystem.
 
 **Named attacker (from partner challenge):** Palantir
 
 ---
 
 ## Top Vulnerability
-<!-- One line: what's the single biggest strategic risk? -->
+<!-- One line: what's the single biggest strategic risk? -->Platform exposure is the highest strategic risk given the workflow depth is low and generic, so other players can encroach and build the same solution at platform scale.
 
 ## Confidence Level
-<!-- H / M / L — how confident are you in this bet after the diagnostic? -->
+<!-- H / M / L — how confident are you in this bet after the diagnostic? -->M
