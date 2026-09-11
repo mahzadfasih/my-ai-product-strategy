@@ -21,16 +21,19 @@ Weakest loop: Network Loop (3/5)
 
 ### 1. Platform Encroachment
 **Attacker:** Palantir
+**Vector:** Scale
 **Time-to-threat:** 1-2 years
 **% of value at risk:** 30%
 
 ### 2. Vertical Competitor
 **Attacker:** Solibri
+**Vector:** Workflow
 **Time-to-threat:** 2-3 years
 **% of value at risk:** 40%
 
 ### 3. Adjacent Expansion
 **Attacker:** Customers' in-house solution
+**Vector:** Ecosystem
 **Time-to-threat:** 3-5 years
 **% of value at risk:** 30%
 
@@ -38,11 +41,11 @@ Weakest loop: Network Loop (3/5)
 
 ## 90-Day Encroachment Plan
 
-*Your partner played the Big Tech attacker. What was their plan to kill you?* Build lower-cost solution at scale faster.
+*Your partner played the Big Tech attacker. What was their plan to kill you?*
 
-**Attacker:**
-**Attack vector (target the weakest loop):**
-**Weeks 1-4 - what they ship:**
-**Weeks 5-8 - how they poach users:**
-**Weeks 9-12 - why users don't come back:**
-**Your defense:**
+**Attacker:** Microsoft
+**Attack vector (target the weakest loop):** Network
+**Weeks 1-4 - what they ship:** train models with ML on rules inputted by each user to refine rule sets for all.
+**Weeks 5-8 - how they poach users:** Include the solution with Azure accounts.
+**Weeks 9-12 - why users don't come back:** Possibility to connect the tool to ERP and other systems.
+**Your defense:** Domain context is far stronger with our service as the data platform. plus, as the data platform, all competitors will rely on 3rd party integrations, where as we can deliver an end-to-end integrated solution.
