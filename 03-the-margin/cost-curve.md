@@ -22,9 +22,9 @@
 ## Cost Curve
 | Feature | Complexity | Model Tier | Cost/REQ | Volume % | Weighted | Forntier / Basic Model |
 |--------------------|----------------|-------|-----------|----------|----------|-------------|
-| Text to Rule Set | Simple | Small | $0.005 | 50% | $0 | |
-| Validate Project Against Rule Set | Medium | Mid | $0.005 | 30% | | |
-| Make Recommendation based on Validation| Complex | Frontier | $0.01 | 20% | | |
+| Text to Rule Set | Simple | Small | $0.005 | 50% | $0.0025 | Basic |
+| Validate Project Against Rule Set | Medium | Mid | $0.005 | 30% | 0.0015 | Basic |
+| Make Recommendation based on Validation| Complex | Frontier | $0.01 | 20% | 0.002 | Frontier |
 
 # Pricing Strategy
 Pricing Strategy Block
