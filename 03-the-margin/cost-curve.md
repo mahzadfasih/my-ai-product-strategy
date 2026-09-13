@@ -1,5 +1,11 @@
 # Cost Curve & Pricing Strategy
 
+Leader: Run validation during project execution.
+Filler: Set validation rules based on requirements document.
+Killer: execute changes to project data based on validation results.
+Killer usage: 50%
+Bundle or add-on: add-on
+
 # Margin Calculator
 
 ## Inputs
