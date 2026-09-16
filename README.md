@@ -1,6 +1,6 @@
 # My AI Product Strategy
 
-# Validation Tool
+# Validation Tool (ValT)
 
 > For project managers who today check requirement compliance manually, ValT reads the requirements document itself, derives the rules from it, and returns the specific project areas that violate them — so compliance checking becomes an action you take, not a spreadsheet you mainta…
 
