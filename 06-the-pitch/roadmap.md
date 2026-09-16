@@ -48,5 +48,6 @@ ValT turns requirements documents into approved, executable rules and validates 
 *Your 3-sentence AI strategy from Module 1 vs. what you'd say now:*
 
 **M1 baseline:**
+Invest in monetizable capabilities that are our differentiators, while also supporting necessary competitor-parity capabilities, where we increase our data gravity.
 
 **Now:**
