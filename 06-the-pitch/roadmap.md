@@ -51,3 +51,4 @@ ValT turns requirements documents into approved, executable rules and validates 
 Invest in monetizable capabilities that are our differentiators, while also supporting necessary competitor-parity capabilities, where we increase our data gravity.
 
 **Now:**
+Make a $800K investment into building a project validation tool that reduces manual compliance work. We build defensibility through reusable rules and validation data that improve with repeated customer use.
