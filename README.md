@@ -24,7 +24,7 @@
 **What we're building, for whom, why now.**
 
 - **Product:** Validation Tool
-- **AI Value Archetype:** Orchestrator. ValT does not answer a question or draft content; it chains two dependent
+- **AI Value Archetype:** Orchestrator. ValT does not answer a question or draft content; it chains two dependent agentic workflows.
 - **Vulnerability Scores:** _(add: Moat _/5 · Data _/5 · Platform _/5)_
 - **Top Risk:** Platform exposure is the highest strategic risk given the workflow depth is low and generic, so other players can encroach and build the same solution at platform scale.
 - **Confidence:** M
